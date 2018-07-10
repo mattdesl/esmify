@@ -29,7 +29,7 @@
     "tape": "^4.9.1"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "tape test/test-*.js"
   },
   "keywords": [
     "browserify",

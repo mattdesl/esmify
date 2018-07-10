@@ -27,6 +27,16 @@ const run = async (file) => {
   });
 };
 
+test('should handle default export', async t => {
+  t.plan(1);
+  try {
+    const result = await run('./fixtures/import-default');
+    t.equal(result, 'foo');
+  } catch (err) {
+    t.fail(err);
+  }
+});
+
 test('should ignore JSON', async t => {
   t.plan(1);
   try {
@@ -42,16 +52,6 @@ test('should handle named export', async t => {
   try {
     const result = await run('./fixtures/import-named');
     t.equal(result, 'baz');
-  } catch (err) {
-    t.fail(err);
-  }
-});
-
-test('should handle default export', async t => {
-  t.plan(1);
-  try {
-    const result = await run('./fixtures/import-default');
-    t.equal(result, 'foo');
   } catch (err) {
     t.fail(err);
   }
