@@ -137,3 +137,23 @@ test('the js points elsewhere', async t => {
     t.fail(err);
   }
 });
+
+test('imports wcag-contrast', async t => {
+  t.plan(1);
+  try {
+    const result = await run('./fixtures/import-contrast.js');
+    t.equal(result, '3');
+  } catch (err) {
+    t.fail(err);
+  }
+});
+
+test('require()s wcag-contrast', async t => {
+  t.plan(1);
+  try {
+    const result = await run('./fixtures/require-contrast.js');
+    t.equal(result, '3');
+  } catch (err) {
+    t.fail(err);
+  }
+});

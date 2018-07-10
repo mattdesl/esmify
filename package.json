@@ -26,7 +26,8 @@
     "esm": "^3.0.65",
     "glslify": "^6.2.1",
     "loud-rejection": "^1.6.0",
-    "tape": "^4.9.1"
+    "tape": "^4.9.1",
+    "wcag-contrast": "1.2.0"
   },
   "scripts": {
     "test": "tape test/test-*.js"
