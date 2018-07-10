@@ -1,26 +1,26 @@
 # esmify
 
-A dead-simple tool to add `import` / `export` ES Module syntax for [browserify](https://www.npmjs.com/package/browserify).
+A dead-simple tool to add `import` / `export` ES Module syntax to your [browserify](https://www.npmjs.com/package/browserify) builds.
 
-This plugin does the following to your bundler:
+The plugin makes the following changes to your bundler:
 
-- Adds `.mjs` extension to module resolution
-- Resolves to `"module"` field when `"browser"` field is not defined
+- Adds `.mjs` extension to module resolution (which take precedence over `.js` files)
+- Resolves to `"module"` field in `package.json` when a `"browser"` field is not specified
 - Transforms ES Module syntax (static `import` / `export` statements) into CommonJS
 
-Here's how you use it:
+Use it with the `--plugin` or `-p` flags in browserify:
 
 ```js
 browserify index.js -p esmify > bundle.js
 ```
 
-Also works with [budo](https://www.npmjs.com/package/budo), for example:
+Also works with [budo](https://www.npmjs.com/package/budo) and similar tools, for example:
 
 ```js
 budo index.js --live -- -p esmify
 ```
 
-The plugin ignores dynamic import expressions and skips files that don't include `import` / `export` expressions to maintain performance. It runs across your bundle (including `node_modules`) as one of the goals is to support ESM syntax that is beginning to appear in the wild in many npm modules.
+Files that don't contain `import` / `export` syntax are ignored, as are dynamic import expressions. The plugin runs across your bundle (including `node_modules`) in order to support ESM-authored modules on npm.
 
 ## Install
 
@@ -49,9 +49,7 @@ Returns a browswerify plugin function that operates on `bundler` with the given 
 - `mainFields` which describes the order of importance of fields in package.json resolution, defaults to `[ 'browser', 'module', 'main' ]`
 - `plainImports` (Experimental) this feature will map named imports *directly* to their CommonJS counterparts, without going through Babel's inter-op functions. This is generally needed for static analysis of `fs`, `path` and other tools like `glslify` in browserify. Defaults to `[ 'fs', 'path', 'glslify' ]`.
 
-## How it Works
-
-Under the hood, this is using Babel with a couple plugins specific to CommonJS/import/export.
+Under the hood, this uses Babel and `plugin-transform-modules-commonjs` to provide robust inter-op that handles a variety of use cases.
 
 ## License
 
