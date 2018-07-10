@@ -1,0 +1,6 @@
+{
+  "name": "esm-module",
+  "main": "./main.js",
+  "module": "./module.mjs",
+  "browser": "./browser.js"
+}

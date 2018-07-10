@@ -14,14 +14,17 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.52",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.52",
     "babel-plugin-import-to-require": "^1.0.0",
+    "cached-path-relative": "^1.0.1",
     "concat-stream": "^1.6.2",
     "duplexer2": "^0.1.4",
     "through2": "^2.0.3"
   },
   "devDependencies": {
+    "brfs": "^2.0.0",
     "browserify": "^16.2.2",
     "budo": "^11.3.2",
     "esm": "^3.0.65",
+    "glslify": "^6.2.1",
     "loud-rejection": "^1.6.0",
     "tape": "^4.9.1"
   },

@@ -8,7 +8,7 @@ const run = async (file) => {
   const bundle = await new Promise((resolve, reject) => {
     browserify(path.resolve(__dirname, file), {
       transform: [
-        [ require('../'), { global: true } ]
+        [ require('../lib/transform'), { global: true } ]
       ]
     }).bundle((err, src) => {
       if (err) {

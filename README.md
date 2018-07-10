@@ -2,19 +2,25 @@
 
 A dead-simple tool to add `import` / `export` ES Module syntax for [browserify](https://www.npmjs.com/package/browserify).
 
-Example, using `-g` (for `--global-transform`) to also transform `node_modules` dependencies that may have been authored with ESM syntax.
+This plugin does the following to your bundler:
+
+- Adds `.mjs` extension (which takes precedence)
+- Resolves to `"module"` field when `"browser"` field is not defined
+- Transforms ES Module syntax (static `import` / `export` statements) into CommonJS across your entire bundle (to ensure that ESM authored modules will work)
+
+Here's how you use it:
 
 ```js
-browserify index.js -g esmify > bundle.js
+browserify index.js -p esmify > bundle.js
 ```
 
 Also works with [budo](https://www.npmjs.com/package/budo), for example:
 
 ```js
-budo index.js --live -- -g esmify
+budo index.js --live -- -p esmify
 ```
 
-This will transform static `import` / `export` statements across your entire bundle into a CommonJS format. The transform ignores dynamic import expressions, and skips files that don't include the format.
+The plugin ignores dynamic import expressions and skips files that don't include `import` / `export` expressions to maintain performance.
 
 ## Install
 
@@ -24,21 +30,24 @@ Use [npm](https://npmjs.com/) to install.
 npm install esmify --save-dev
 ```
 
-Then use it as a global transform in browserify with `-g`, or a local transform (which ignores `node_modules`) with `-t`. You can also use it from the browserify API like so:
+Also can be used via API like so:
 
 ```js
 browserify({
-  transform: [
-    [ require('esmify'), { global: true } ]
+  plugin: [
+    [ require('esmify'), { /* ... options ... */ } ]
   ]
 });
 ```
 
 ## Usage
 
-#### `tr = esmify(file)`
+#### `plugin = esmify(bundler, opt = {})`
 
-Returns a transform stream that takes ES Module syntax and transforms it into CommonJS module syntax, using the specfieid `file` path of the module being transformed.
+Returns a browswerify plugin function that operates on `bundler` with the given options:
+
+- `mainFields` which describes the order of importance of fields in package.json resolution, defaults to `[ 'browser', 'module', 'main' ]`
+- `plainImports` (Experimental) this feature will map named imports *directly* to their CommonJS counterparts, without going through Babel's inter-op functions. This is generally needed for static analysis of `fs`, `path` and other tools like `glslify` in browserify. Defaults to `[ 'fs', 'path', 'glslify' ]`.
 
 ## How it Works
 
