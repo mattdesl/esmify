@@ -20,7 +20,7 @@ Also works with [budo](https://www.npmjs.com/package/budo), for example:
 budo index.js --live -- -p esmify
 ```
 
-The plugin ignores dynamic import expressions and skips files that don't include `import` / `export` expressions to maintain performance. It runs across your bundle (including `node_modules`) because it is intended to ease the pain of new modules being authored with ESM syntax.
+The plugin ignores dynamic import expressions and skips files that don't include `import` / `export` expressions to maintain performance. It runs across your bundle (including `node_modules`) as one of the goals is to support ESM syntax that is beginning to appear in the wild in many npm modules.
 
 ## Install
 
