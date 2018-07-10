@@ -1,5 +1,5 @@
-const resolve = require('./lib/resolve');
-const { createTransform } = require('./lib/transform');
+const resolve = require('./resolve');
+const { createTransform } = require('./transform');
 const path = require('path');
 const through = require('through2');
 const relativePath = require('cached-path-relative');

@@ -1,7 +1,7 @@
 require('loud-rejection')();
 const test = require('tape');
 const path = require('path');
-const resolve = require('../lib/resolve');
+const resolve = require('../resolve');
 
 const fixtures = path.resolve(__dirname, 'fixtures');
 

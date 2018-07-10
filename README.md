@@ -51,6 +51,15 @@ Returns a browswerify plugin function that operates on `bundler` with the given 
 
 Under the hood, this uses Babel and `plugin-transform-modules-commonjs` to provide robust inter-op that handles a variety of use cases.
 
+#### `require('esmify/resolve')(id, opts, cb)`
+
+Resolve the given `id` using the module resolution algorithm from `esmify`, accepting `{ mainFields }` array to opts as well as other options passed to [resolve](https://www.npmjs.com/package/resolve) and [browser-resolve](https://www.npmjs.com/package/browser-resolve).
+
+Works like so:
+
+- If mainFields includes a `"browser"` field, use `browser-resolve`, otherwise use `resolve`
+- Look for package.json fields in order of `mainFields`, the first field that exists will be used
+
 ## License
 
 MIT, see [LICENSE.md](http://github.com/mattdesl/esmify/blob/master/LICENSE.md) for details.
