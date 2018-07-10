@@ -1,6 +1,6 @@
 {
   "name": "esmify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "parse and handle import/export for browserify",
   "main": "./esmify.js",
   "license": "MIT",
