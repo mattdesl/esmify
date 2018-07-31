@@ -47,6 +47,7 @@ browserify({
 Returns a browswerify plugin function that operates on `bundler` with the given options:
 
 - `mainFields` which describes the order of importance of fields in package.json resolution, defaults to `[ 'browser', 'module', 'main' ]`
+- `nodeModules` (default `true`) to disable the transform on your `node_modules` tree, set this to `false`. This will speed up bundling but you may run into issues when trying to import ESM-published code from npm.
 - `plainImports` (Experimental) this feature will map named imports *directly* to their CommonJS counterparts, without going through Babel's inter-op functions. This is generally needed for static analysis of `fs`, `path` and other tools like `glslify` in browserify. Defaults to `[ 'fs', 'path', 'glslify' ]`.
 
 Under the hood, this uses Babel and `plugin-transform-modules-commonjs` to provide robust inter-op that handles a variety of use cases.
