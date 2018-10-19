@@ -10,11 +10,11 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.52",
-    "@babel/plugin-syntax-async-generators": "^7.0.0-beta.53",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.52",
-    "@babel/plugin-syntax-object-rest-spread": "^7.0.0-beta.53",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.52",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-async-generators": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "babel-plugin-import-to-require": "^1.0.0",
     "cached-path-relative": "^1.0.1",
     "concat-stream": "^1.6.2",
