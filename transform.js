@@ -7,6 +7,7 @@ const duplexer = require('duplexer2');
 
 const pluginDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 const pluginCJS = require('@babel/plugin-transform-modules-commonjs');
+const pluginExportDefaultFrom = require('@babel/plugin-proposal-export-default-from');
 const pluginImportToRequire = require('babel-plugin-import-to-require');
 
 // Gotta add these as well so babel doesn't bail out when it sees new syntax
@@ -57,7 +58,8 @@ function createTransform (babelOpts = {}) {
             ? [ pluginImportToRequire, { modules: plainImports } ]
             : false,
           pluginDynamicImport,
-          pluginCJS
+          pluginExportDefaultFrom,
+          pluginCJS,
         ].filter(Boolean),
         filename: file
       });
