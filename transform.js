@@ -13,6 +13,7 @@ const pluginImportToRequire = require('babel-plugin-import-to-require');
 // Gotta add these as well so babel doesn't bail out when it sees new syntax
 const pluginSyntaxRestSpread = require('@babel/plugin-syntax-object-rest-spread');
 const pluginSyntaxGenerator = require('@babel/plugin-syntax-async-generators');
+const pluginSyntaxJSX = require('@babel/plugin-syntax-jsx');
 
 module.exports = createTransform();
 module.exports.createTransform = createTransform;
@@ -53,6 +54,7 @@ function createTransform (babelOpts = {}) {
         sourceMaps: 'inline',
         plugins: [
           pluginSyntaxRestSpread,
+          pluginSyntaxJSX,
           pluginSyntaxGenerator,
           plainImports.length > 0
             ? [ pluginImportToRequire, { modules: plainImports } ]

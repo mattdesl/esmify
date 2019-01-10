@@ -14,6 +14,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-syntax-async-generators": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "babel-plugin-import-to-require": "^1.0.0",
