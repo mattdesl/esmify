@@ -14,6 +14,8 @@ const pluginImportToRequire = require('babel-plugin-import-to-require');
 const pluginSyntaxRestSpread = require('@babel/plugin-syntax-object-rest-spread');
 const pluginSyntaxGenerator = require('@babel/plugin-syntax-async-generators');
 const pluginSyntaxJSX = require('@babel/plugin-syntax-jsx');
+const pluginReactJSX = require('@babel/plugin-transform-react-jsx');
+const pluginReactDisplayName = require('@babel/plugin-transform-react-display-name');
 
 module.exports = createTransform();
 module.exports.createTransform = createTransform;
@@ -53,6 +55,8 @@ function createTransform (babelOpts = {}) {
         babelrc: false,
         sourceMaps: 'inline',
         plugins: [
+          pluginReactJSX,
+          pluginReactDisplayName,
           pluginSyntaxRestSpread,
           pluginSyntaxJSX,
           pluginSyntaxGenerator,
