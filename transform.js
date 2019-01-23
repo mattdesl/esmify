@@ -7,11 +7,15 @@ const duplexer = require('duplexer2');
 
 const pluginDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 const pluginCJS = require('@babel/plugin-transform-modules-commonjs');
+const pluginExportDefaultFrom = require('@babel/plugin-proposal-export-default-from');
 const pluginImportToRequire = require('babel-plugin-import-to-require');
 
 // Gotta add these as well so babel doesn't bail out when it sees new syntax
 const pluginSyntaxRestSpread = require('@babel/plugin-syntax-object-rest-spread');
 const pluginSyntaxGenerator = require('@babel/plugin-syntax-async-generators');
+const pluginSyntaxJSX = require('@babel/plugin-syntax-jsx');
+const pluginReactJSX = require('@babel/plugin-transform-react-jsx');
+const pluginReactDisplayName = require('@babel/plugin-transform-react-display-name');
 
 module.exports = createTransform();
 module.exports.createTransform = createTransform;
@@ -51,13 +55,17 @@ function createTransform (babelOpts = {}) {
         babelrc: false,
         sourceMaps: 'inline',
         plugins: [
+          pluginReactJSX,
+          pluginReactDisplayName,
           pluginSyntaxRestSpread,
+          pluginSyntaxJSX,
           pluginSyntaxGenerator,
           plainImports.length > 0
             ? [ pluginImportToRequire, { modules: plainImports } ]
             : false,
           pluginDynamicImport,
-          pluginCJS
+          pluginExportDefaultFrom,
+          pluginCJS,
         ].filter(Boolean),
         filename: file
       });
