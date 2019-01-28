@@ -10,25 +10,25 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-syntax-async-generators": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-async-generators": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "babel-plugin-import-to-require": "^1.0.0",
-    "cached-path-relative": "^1.0.1",
+    "cached-path-relative": "^1.0.2",
     "concat-stream": "^1.6.2",
     "duplexer2": "^0.1.4",
-    "through2": "^2.0.3"
+    "through2": "^2.0.5"
   },
   "devDependencies": {
-    "brfs": "^2.0.0",
-    "browserify": "^16.2.2",
-    "budo": "^11.3.2",
-    "esm": "^3.0.65",
-    "glslify": "^6.2.1",
+    "brfs": "^2.0.1",
+    "browserify": "^16.2.3",
+    "budo": "^11.6.0",
+    "esm": "^3.1.4",
+    "glslify": "^6.4.1",
     "loud-rejection": "^1.6.0",
-    "tape": "^4.9.1",
+    "tape": "^4.9.2",
     "wcag-contrast": "1.2.0"
   },
   "scripts": {

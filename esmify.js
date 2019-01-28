@@ -6,6 +6,7 @@ const relativePath = require('cached-path-relative');
 
 module.exports = function (bundler, pluginOpts = {}) {
   const cwd = pluginOpts.basedir || process.cwd();
+  const logFile = pluginOpts.logFile;
   let defaultMainField = [ 'browser', 'module', 'main' ];
 
   // TODO: Consider a better way to handle this.
@@ -60,14 +61,14 @@ module.exports = function (bundler, pluginOpts = {}) {
       // transforms passed in via transform field and so forth.
       // 1st is a regular local transform
       this.push({
-        transform: createTransform({ plainImports }),
+        transform: createTransform({ plainImports, logFile }),
         global: false
       });
       // 2nd is a global transform, but *only* running in node_modules, since
       // the above local transform already catches local files.
       if (pluginOpts.nodeModules !== false) {
         this.push({
-          transform: createTransform({ plainImports, filterFile: file => isNodeModule(file, cwd) }),
+          transform: createTransform({ plainImports, logFile, filterFile: file => isNodeModule(file, cwd) }),
           global: true
         });
       }

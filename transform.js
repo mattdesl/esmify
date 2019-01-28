@@ -29,6 +29,8 @@ function createTransform (babelOpts = {}) {
       }
     }
 
+    if (babelOpts.logFile) console.log('Checking', file);
+
     const output = through();
     const stream = duplexer(concat(code => {
       code = code.toString();
@@ -62,8 +64,11 @@ function createTransform (babelOpts = {}) {
         filename: file
       });
 
+      if (babelOpts.logFile) console.log('Transforming', file);
+
       delete settings.filterFile;
       delete settings.filterSource;
+      delete settings.logFile;
       delete settings.plainImports;
 
       babel.transform(code, settings, (err, result) => {
