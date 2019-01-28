@@ -61,7 +61,7 @@ module.exports = function (bundler, pluginOpts = {}) {
       // transforms passed in via transform field and so forth.
       // 1st is a regular local transform
       this.push({
-        transform: createTransform({ plainImports, logFile }),
+        transform: createTransform({ plainImports, logFile, filterFile: file => !isNodeModule(file, cwd) }) }),
         global: false
       });
       // 2nd is a global transform, but *only* running in node_modules, since
