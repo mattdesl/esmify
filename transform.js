@@ -5,6 +5,8 @@ const path = require('path');
 const concat = require('concat-stream');
 const duplexer = require('duplexer2');
 
+const pluginClassProperties = require('@babel/plugin-proposal-class-properties');
+const pluginDecorators = require('@babel/plugin-proposal-decorators');
 const pluginDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 const pluginCJS = require('@babel/plugin-transform-modules-commonjs');
 const pluginExportDefaultFrom = require('@babel/plugin-proposal-export-default-from');
@@ -55,6 +57,8 @@ function createTransform (babelOpts = {}) {
         babelrc: false,
         sourceMaps: 'inline',
         plugins: [
+          [pluginDecorators, {legacy: true}],
+          [pluginClassProperties, {loose: true}],
           pluginReactJSX,
           pluginReactDisplayName,
           pluginSyntaxRestSpread,
