@@ -16,6 +16,7 @@
     "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "babel-plugin-import-to-require": "^1.0.0",
+    "browser-resolve": "^1.11.3",
     "cached-path-relative": "^1.0.2",
     "concat-stream": "^1.6.2",
     "duplexer2": "^0.1.4",
