@@ -77,6 +77,22 @@ test('should handle "esm" authored module using ES6', async t => {
   }
 });
 
+
+
+test('should handle "export-namespace-from"', async t => {
+  t.plan(1);
+
+  try {
+    const result = await run('./fixtures/export-namespace-from/import')
+    t.equal(result, 'baz')
+  } catch (err) {
+    console.log('rrrrr', err)
+    t.fail(err)
+  }
+})
+
+
+
 test('should handle wildcard import', async t => {
   t.plan(1);
   try {

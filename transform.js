@@ -12,6 +12,7 @@ const pluginImportToRequire = require('babel-plugin-import-to-require');
 // Gotta add these as well so babel doesn't bail out when it sees new syntax
 const pluginSyntaxRestSpread = require('@babel/plugin-syntax-object-rest-spread');
 const pluginSyntaxGenerator = require('@babel/plugin-syntax-async-generators');
+const pluginExportNamespace = require('@babel/plugin-proposal-export-namespace-from');
 
 module.exports = createTransform();
 module.exports.createTransform = createTransform;
@@ -59,7 +60,8 @@ function createTransform (babelOpts = {}) {
             ? [ pluginImportToRequire, { modules: plainImports } ]
             : false,
           pluginDynamicImport,
-          pluginCJS
+          pluginCJS,
+          pluginExportNamespace
         ].filter(Boolean),
         filename: file
       });
