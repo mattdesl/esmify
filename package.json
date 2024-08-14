@@ -1,6 +1,6 @@
 {
   "name": "esmify",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "parse and handle import/export for browserify",
   "main": "./esmify.js",
   "license": "MIT",
@@ -10,26 +10,26 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-syntax-async-generators": "^7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-syntax-async-generators": "^7.8.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.8",
     "babel-plugin-import-to-require": "^1.0.0",
-    "cached-path-relative": "^1.0.2",
-    "concat-stream": "^1.6.2",
+    "cached-path-relative": "^1.1.0",
+    "concat-stream": "^2.0.0",
     "duplexer2": "^0.1.4",
-    "through2": "^2.0.5"
+    "through2": "^4.0.2"
   },
   "devDependencies": {
-    "brfs": "^2.0.1",
-    "browserify": "^16.2.3",
-    "budo": "^11.6.0",
-    "esm": "^3.1.4",
-    "glslify": "^6.4.1",
-    "loud-rejection": "^1.6.0",
-    "tape": "^4.9.2",
-    "wcag-contrast": "1.2.0"
+    "brfs": "^2.0.2",
+    "browserify": "^17.0.0",
+    "budo": "^11.8.4",
+    "esm": "^3.2.25",
+    "glslify": "^7.1.1",
+    "loud-rejection": "^2.2.0",
+    "tape": "^5.8.1",
+    "wcag-contrast": "3.0.0"
   },
   "scripts": {
     "test": "tape test/test-*.js"
